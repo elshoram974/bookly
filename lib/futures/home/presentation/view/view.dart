@@ -30,11 +30,11 @@ class HomeList extends StatelessWidget {
     return ListView(
       physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.symmetric(
-        vertical: AppConstants.defaultPadding,
+        vertical: 1.4 * AppConstants.defaultPadding,
       ),
       children: const [
         BooklyHorizontalList(),
-        SizedBox(height: 3 * AppConstants.defaultPadding),
+        SizedBox(height: 2.45 * AppConstants.defaultPadding),
         BestSellerWidget(),
         BooklyBestSellerList(),
       ],

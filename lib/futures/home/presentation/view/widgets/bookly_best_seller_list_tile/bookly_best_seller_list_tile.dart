@@ -9,14 +9,14 @@ class BooklyBestSellerListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 120,
+      height: 105,
       margin: const EdgeInsets.symmetric(
         vertical: 0.3 * AppConstants.defaultPadding,
       ),
       child: const Row(
         children: [
           BooklyItemInList(showPlayIcon: false),
-          SizedBox(width: 2 * AppConstants.defaultPadding),
+          SizedBox(width: 1.5 * AppConstants.defaultPadding),
           Expanded(child: BooklyBestSellerTile())
         ],
       ),

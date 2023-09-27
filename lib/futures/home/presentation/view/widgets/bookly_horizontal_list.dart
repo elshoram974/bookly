@@ -8,18 +8,18 @@ class BooklyHorizontalList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 0.3 * MediaQuery.sizeOf(context).height,
+      height: 0.2759 * MediaQuery.sizeOf(context).height,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         itemCount: 20,
         padding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.defaultPadding,
+          horizontal: 1.5 * AppConstants.defaultPadding,
         ),
         itemBuilder: (BuildContext context, int index) {
           return const Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 0.3 * AppConstants.defaultPadding,
+            padding: EdgeInsets.only(
+              right: 0.75 * AppConstants.defaultPadding,
             ),
             child: BooklyItemInList(),
           );

@@ -3,9 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class PlayIcon extends StatelessWidget {
-  const PlayIcon({
-    super.key,
-  });
+  const PlayIcon({super.key});
 
   @override
   Widget build(BuildContext context) {

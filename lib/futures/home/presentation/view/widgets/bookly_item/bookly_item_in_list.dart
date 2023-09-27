@@ -12,7 +12,7 @@ class BooklyItemInList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 7 / 9,
+      aspectRatio: 150 / 224,
       child: Stack(
         children: [
           Container(
@@ -25,7 +25,7 @@ class BooklyItemInList extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
             ),
-            alignment: const Alignment(0.75, 0.9),
+            alignment: const Alignment(0.6, 0.732),
             child: showPlayIcon ? const PlayIcon() : null,
           ),
         ],

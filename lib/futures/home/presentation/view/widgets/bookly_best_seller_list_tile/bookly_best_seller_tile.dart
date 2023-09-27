@@ -8,7 +8,7 @@ class BooklyBestSellerTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text("The Jungle Book", style: TextStyle(fontSize: 20)),
