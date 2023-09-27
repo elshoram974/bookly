@@ -52,7 +52,7 @@ class _SlidingTextAnimationState extends State<SlidingTextAnimation> with Single
       duration: const Duration(seconds: AppDuration.splashDuration),
     );
 
-    _animation = Tween(begin: const Offset(0, 5), end: Offset.zero)
+    _animation = Tween(begin: const Offset(0, 2), end: Offset.zero)
         .animate(_animationController);
     _animation.addListener(() => setState(() {}));
     _animationController.forward();
