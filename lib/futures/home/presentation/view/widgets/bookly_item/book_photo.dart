@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'play_icon.dart';
 
-class BooklyItemInList extends StatelessWidget {
-  const BooklyItemInList({super.key, this.showPlayIcon = true});
+class BookPhoto extends StatelessWidget {
+  const BookPhoto({super.key, this.showPlayIcon = true});
 
   final bool showPlayIcon;
 

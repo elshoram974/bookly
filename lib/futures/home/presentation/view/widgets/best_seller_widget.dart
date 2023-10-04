@@ -14,7 +14,7 @@ class BestSellerWidget extends StatelessWidget {
       ),
       child: Text(
         S.of(context).bestSeller,
-        style: AppStyle.mediumTitle,
+        style: AppStyle.styleSemiBold18,
       ),
     );
   }
