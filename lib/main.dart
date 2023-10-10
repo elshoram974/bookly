@@ -5,8 +5,9 @@ import 'package:bookly/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() => runApp(const BooklyApp());
-
+void main() {
+  runApp(const BooklyApp());
+}
 
 class BooklyApp extends StatelessWidget {
   const BooklyApp({super.key});
