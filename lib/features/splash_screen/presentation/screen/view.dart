@@ -1,7 +1,7 @@
 
 
-import 'package:bookly/futures/splash_screen/presentation/view/widgets/logo_widget.dart';
-import 'package:bookly/futures/splash_screen/presentation/view/widgets/sliding_text_animation.dart';
+import 'package:bookly/features/splash_screen/presentation/widgets/logo_widget.dart';
+import 'package:bookly/features/splash_screen/presentation/widgets/sliding_text_animation.dart';
 import 'package:flutter/material.dart';
 
 class MySplashScreen extends StatelessWidget {

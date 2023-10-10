@@ -1,6 +1,6 @@
+import 'package:bookly/core/constants/styles.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../../core/constants/styles.dart';
 
 class WriterWidget extends StatelessWidget {
   const WriterWidget({super.key});

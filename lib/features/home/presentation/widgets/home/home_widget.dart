@@ -1,8 +1,8 @@
+import 'package:bookly/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constants/app_constants.dart';
 import 'best_seller_widget.dart';
-import 'bookly_best_seller_list_tile/bookly_best_seller_list_tile.dart';
+import 'bookly_best_seller_list_tile/bookly_best_seller_list.dart';
 import 'bookly_horizontal_list.dart';
 
 class HomeList extends StatelessWidget {

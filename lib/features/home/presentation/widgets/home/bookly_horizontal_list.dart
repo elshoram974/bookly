@@ -1,6 +1,7 @@
 import 'package:bookly/core/constants/app_constants.dart';
-import 'package:bookly/futures/home/presentation/view/widgets/bookly_item/book_photo.dart';
 import 'package:flutter/material.dart';
+
+import 'bookly_item/book_photo.dart';
 
 class BooklyHorizontalList extends StatelessWidget {
   const BooklyHorizontalList({super.key});
