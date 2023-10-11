@@ -11,10 +11,11 @@ class SlidingTextAnimation extends StatefulWidget {
   State<SlidingTextAnimation> createState() => _SlidingTextAnimationState();
 }
 
-class _SlidingTextAnimationState extends State<SlidingTextAnimation> with SingleTickerProviderStateMixin {
+class _SlidingTextAnimationState extends State<SlidingTextAnimation>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _animationController;
   late final Animation<Offset> _animation;
-  
+
   @override
   void initState() {
     super.initState();

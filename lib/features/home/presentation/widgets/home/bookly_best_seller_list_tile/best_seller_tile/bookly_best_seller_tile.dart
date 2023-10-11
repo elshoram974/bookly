@@ -12,11 +12,7 @@ class BooklyBestSellerTile extends StatelessWidget {
     return const Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        BookName(),
-        WriterWidget(),
-        PriceAndReview()
-      ],
+      children: [BookName(), WriterWidget(), PriceAndReview()],
     );
   }
 }

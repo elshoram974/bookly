@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../widgets/home/home_widget.dart';
 
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
