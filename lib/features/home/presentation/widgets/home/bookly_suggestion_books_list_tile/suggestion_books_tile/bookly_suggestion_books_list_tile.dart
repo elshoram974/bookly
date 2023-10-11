@@ -2,10 +2,10 @@ import 'package:bookly/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../bookly_item/book_photo.dart';
-import 'bookly_best_seller_tile.dart';
+import 'bookly_suggestion_books_tile.dart';
 
-class BooklyBestSellerListTile extends StatelessWidget {
-  const BooklyBestSellerListTile({super.key});
+class BooklySuggestionBooksListTile extends StatelessWidget {
+  const BooklySuggestionBooksListTile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class BooklyBestSellerListTile extends StatelessWidget {
         children: [
           BookPhoto(showPlayIcon: false),
           SizedBox(width: 1.5 * AppConstants.defaultPadding),
-          Expanded(child: BooklyBestSellerTile())
+          Expanded(child: BooklySuggestionBooksTile())
         ],
       ),
     );

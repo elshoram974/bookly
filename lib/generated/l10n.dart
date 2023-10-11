@@ -60,11 +60,11 @@ class S {
     );
   }
 
-  /// `Best Seller`
-  String get bestSeller {
+  /// `Suggestion Books`
+  String get SuggestionBooks {
     return Intl.message(
-      'Best Seller',
-      name: 'bestSeller',
+      'Suggestion Books',
+      name: 'SuggestionBooks',
       desc: '',
       args: [],
     );

@@ -1,10 +1,10 @@
 import 'package:bookly/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
-import 'best_seller_tile/bookly_best_seller_list_tile.dart';
+import 'suggestion_books_tile/bookly_suggestion_books_list_tile.dart';
 
-class BooklyBestSellerList extends StatelessWidget {
-  const BooklyBestSellerList({super.key});
+class BooklySuggestionBooksList extends StatelessWidget {
+  const BooklySuggestionBooksList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class BooklyBestSellerList extends StatelessWidget {
       child: Column(
         children: List.generate(
           20,
-          (index) => const BooklyBestSellerListTile(),
+          (index) => const BooklySuggestionBooksListTile(),
         ),
       ),
     );

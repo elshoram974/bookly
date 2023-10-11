@@ -3,8 +3,8 @@ import 'package:bookly/core/constants/styles.dart';
 import 'package:bookly/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-class BestSellerWidget extends StatelessWidget {
-  const BestSellerWidget({super.key});
+class SuggestionBooksWidget extends StatelessWidget {
+  const SuggestionBooksWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class BestSellerWidget extends StatelessWidget {
         horizontal: 1.5 * AppConstants.defaultPadding,
       ),
       child: Text(
-        S.of(context).bestSeller,
+        S.of(context).SuggestionBooks,
         style: AppStyle.styleSemiBold18,
       ),
     );
