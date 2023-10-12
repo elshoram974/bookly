@@ -4,14 +4,11 @@ import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+
+import 'core/utils/functions/hive/init_hive.dart';
 
 void main() async {
-  await Hive.initFlutter();
-  await Future.wait([
-    Hive.openBox(AppStrings.featureBooks),
-    Hive.openBox(AppStrings.suggestionBooks),
-  ]);
+  await initHive();
 
   runApp(const BooklyApp());
 }
