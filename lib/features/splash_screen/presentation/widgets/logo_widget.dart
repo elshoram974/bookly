@@ -1,4 +1,4 @@
-import 'package:bookly/core/utils/assets_constants.dart';
+import 'package:bookly/core/utils/constants/assets_constants.dart';
 import 'package:flutter/material.dart';
 
 class LogoWidget extends StatelessWidget {

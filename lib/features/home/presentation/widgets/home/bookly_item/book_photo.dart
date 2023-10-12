@@ -1,5 +1,5 @@
-import 'package:bookly/core/utils/app_constants.dart';
-import 'package:bookly/core/utils/assets_constants.dart';
+import 'package:bookly/core/utils/constants/app_constants.dart';
+import 'package:bookly/core/utils/constants/assets_constants.dart';
 import 'package:flutter/material.dart';
 
 import 'play_icon.dart';

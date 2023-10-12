@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 
-const String kMontserrat = "Montserrat";
-const String kGilroy = "Gilroy";
-const String kSectra = "GT Sectra Fine";
+import 'constants/app_strings.dart';
 
 abstract class AppStyle {
   static const TextStyle styleMedium14 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,
-    fontFamily: kMontserrat,
+    fontFamily: AppStrings.montserrat,
   );
   static const TextStyle styleBold15 = TextStyle(
     fontSize: 15,
     fontWeight: FontWeight.bold,
-    fontFamily: kMontserrat,
+    fontFamily: AppStrings.montserrat,
   );
   static const TextStyle styleBold16 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,
-    fontFamily: kGilroy,
+    fontFamily: AppStrings.gilroy,
   );
   static const TextStyle styleSemiBold18 = TextStyle(
     fontSize: 18,
@@ -26,6 +24,6 @@ abstract class AppStyle {
   );
   static const TextStyle styleRegular20 = TextStyle(
     fontSize: 20,
-    fontFamily: kSectra,
+    fontFamily: AppStrings.sectra,
   );
 }

@@ -1,11 +1,16 @@
-import 'package:bookly/core/utils/color_constants.dart';
-import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/core/utils/constants/app_strings.dart';
+import 'package:bookly/core/utils/constants/color_constants.dart';
 import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(AppStrings.featureBooks);
+  await Hive.openBox(AppStrings.suggestionBooks);
+
   runApp(const BooklyApp());
 }
 
@@ -26,7 +31,7 @@ class BooklyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
         scaffoldBackgroundColor: AppColor.primary,
-        fontFamily: kMontserrat,
+        fontFamily: AppStrings.montserrat,
       ),
       routerConfig: AppRoute.router,
     );
