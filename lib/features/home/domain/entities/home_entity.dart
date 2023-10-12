@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class BookHomeEntity extends Equatable {
+class HomeBooksEntity extends Equatable {
   final int idEntity;
   final String bookNameEntity;
   final String authorEntity;
@@ -9,7 +9,7 @@ class BookHomeEntity extends Equatable {
   final double reviewEntity;
   final String photoEntity;
 
-  const BookHomeEntity({
+  const HomeBooksEntity({
     required this.idEntity,
     required this.bookNameEntity,
     required this.authorEntity,
