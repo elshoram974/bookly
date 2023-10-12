@@ -1,6 +1,6 @@
 import 'package:bookly/core/utils/constants/app_constants.dart';
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/generated/l10n.dart';
+import 'package:bookly/core/utils/localization/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../home/bookly_suggestion_books_list_tile/suggestion_books_tile/price_and_review/price_widget.dart';

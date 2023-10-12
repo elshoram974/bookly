@@ -1,4 +1,4 @@
-import 'package:bookly/core/errors/failure.dart';
+import 'package:bookly/core/errors/status.dart';
 import 'package:bookly/core/usecase/usecase_no_parameter.dart';
 import 'package:bookly/features/home/domain/repositories/home_repositories.dart';
 
@@ -10,7 +10,7 @@ class FetchSuggestionBooksUseCase extends UseCase<List<HomeBooksEntity>> {
   FetchSuggestionBooksUseCase(this.homeRepositories);
 
   @override
-  Future<(Failure error, List<HomeBooksEntity> books)> call() async {
+  Future<({Status status, List<HomeBooksEntity> data})> call() async {
     return await homeRepositories.fetchSuggestionBooks();
   }
 }

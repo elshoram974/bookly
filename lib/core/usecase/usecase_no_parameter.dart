@@ -1,5 +1,5 @@
-import '../errors/failure.dart';
+import '../errors/status.dart';
 
 abstract class UseCase<T> {
-  Future<(Failure, T)> call();
+  Future<({Status status, T data})> call();
 }
