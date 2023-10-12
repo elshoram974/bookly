@@ -69,6 +69,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Free preview`
+  String get FreePreview {
+    return Intl.message(
+      'Free preview',
+      name: 'FreePreview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can also like`
+  String get YouCanAlsoLike {
+    return Intl.message(
+      'You can also like',
+      name: 'YouCanAlsoLike',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

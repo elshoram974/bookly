@@ -1,5 +1,5 @@
-import 'package:bookly/core/constants/color_constants.dart';
-import 'package:bookly/core/constants/styles.dart';
+import 'package:bookly/core/utils/color_constants.dart';
+import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/routes.dart';
 import 'package:flutter/material.dart';

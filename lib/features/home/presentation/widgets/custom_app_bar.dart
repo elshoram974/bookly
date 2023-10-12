@@ -1,10 +1,14 @@
-import 'package:bookly/core/constants/app_constants.dart';
-import 'package:bookly/core/constants/assets_constants.dart';
+import 'package:bookly/core/utils/app_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({
+    super.key,
+    required this.leftWidget,
+    required this.rightWidget,
+  });
+  final Widget leftWidget;
+  final Widget rightWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +20,9 @@ class CustomAppBar extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Image.asset(AppAssets.logo, width: 75),
+            leftWidget,
             const Spacer(),
-            SvgPicture.asset(AppAssets.icSearch),
+            rightWidget,
           ],
         ),
       ),

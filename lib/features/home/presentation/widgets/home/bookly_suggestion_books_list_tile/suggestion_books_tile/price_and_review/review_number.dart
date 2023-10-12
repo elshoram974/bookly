@@ -1,4 +1,4 @@
-import 'package:bookly/core/constants/styles.dart';
+import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class ReviewNumber extends StatelessWidget {

@@ -1,3 +1,4 @@
+import 'package:bookly/features/home/presentation/screens/details_screen.dart';
 import 'package:bookly/features/home/presentation/screens/home_screen.dart';
 import 'package:bookly/features/splash_screen/presentation/screen/view.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,7 @@ import 'package:go_router/go_router.dart';
 abstract class AppRoute {
   static const String splashScreen = '/';
   static const String homeScreen = '/homeScreen';
-  static const String productScreen = '/productScreen';
+  static const String detailsScreen = '/detailsScreen';
 
   static final GoRouter router = GoRouter(
     routes: <RouteBase>[
@@ -20,6 +21,12 @@ abstract class AppRoute {
         path: homeScreen,
         builder: (BuildContext context, GoRouterState state) {
           return const HomeScreen();
+        },
+      ),
+      GoRoute(
+        path: detailsScreen,
+        builder: (BuildContext context, GoRouterState state) {
+          return const DetailsScreen();
         },
       ),
     ],

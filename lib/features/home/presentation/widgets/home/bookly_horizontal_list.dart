@@ -1,5 +1,7 @@
-import 'package:bookly/core/constants/app_constants.dart';
+import 'package:bookly/core/utils/app_constants.dart';
+import 'package:bookly/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'bookly_item/book_photo.dart';
 
@@ -18,11 +20,11 @@ class BooklyHorizontalList extends StatelessWidget {
           horizontal: 1.5 * AppConstants.defaultPadding,
         ),
         itemBuilder: (BuildContext context, int index) {
-          return const Padding(
-            padding: EdgeInsets.only(
+          return Padding(
+            padding: const EdgeInsets.only(
               right: 0.75 * AppConstants.defaultPadding,
             ),
-            child: BookPhoto(),
+            child: BookPhoto(onTap: () => context.push(AppRoute.detailsScreen)),
           );
         },
       ),

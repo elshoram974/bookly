@@ -1,4 +1,4 @@
-import 'package:bookly/core/constants/duration.dart';
+import 'package:bookly/core/utils/duration.dart';
 import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/routes.dart';
 import 'package:flutter/material.dart';

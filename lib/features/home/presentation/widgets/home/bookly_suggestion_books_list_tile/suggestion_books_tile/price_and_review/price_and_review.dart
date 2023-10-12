@@ -10,7 +10,7 @@ class PriceAndReview extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Row(
       children: [
-        PriceWidget(),
+        PriceWidget(fontSize: 20),
         Spacer(),
         ReviewWidget(),
       ],

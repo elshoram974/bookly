@@ -1,14 +1,15 @@
-import 'package:bookly/core/constants/styles.dart';
+import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class BookName extends StatelessWidget {
-  const BookName({super.key});
+  const BookName({super.key, this.fontSize});
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
+    return Text(
       "The Jungle Book",
-      style: AppStyle.styleRegular20,
+      style: AppStyle.styleRegular20.copyWith(fontSize: fontSize),
       maxLines: 2,
     );
   }
