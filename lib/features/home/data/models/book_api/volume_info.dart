@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'image_links.dart';
 import 'industry_identifier.dart';
 import 'panelization_summary.dart';
@@ -14,6 +16,8 @@ class VolumeInfo {
   num? pageCount;
   String? printType;
   List<String>? categories;
+  num? averageRating;
+  int? ratingsCount;
   String? maturityRating;
   bool? allowAnonLogging;
   String? contentVersion;
@@ -35,6 +39,8 @@ class VolumeInfo {
     this.pageCount,
     this.printType,
     this.categories,
+    this.averageRating,
+    this.ratingsCount,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
@@ -46,60 +52,76 @@ class VolumeInfo {
     this.canonicalVolumeLink,
   });
 
-  factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
-        title: json['title'] as String?,
-        authors: json['authors'] as List<String>?,
-        publisher: json['publisher'] as String?,
-        publishedDate: json['publishedDate'] as String?,
-        description: json['description'] as String?,
-        industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
-            ?.map((e) => IndustryIdentifier.fromJson(e as Map<String, dynamic>))
+  factory VolumeInfo.fromMap(Map<String, dynamic> data) => VolumeInfo(
+        title: data['title'] as String?,
+        authors: data['authors'] as List<String>?,
+        publisher: data['publisher'] as String?,
+        publishedDate: data['publishedDate'] as String?,
+        description: data['description'] as String?,
+        industryIdentifiers: (data['industryIdentifiers'] as List<dynamic>?)
+            ?.map((e) => IndustryIdentifier.fromMap(e as Map<String, dynamic>))
             .toList(),
-        readingModes: json['readingModes'] == null
+        readingModes: data['readingModes'] == null
             ? null
-            : ReadingModes.fromJson(
-                json['readingModes'] as Map<String, dynamic>),
-        pageCount: json['pageCount'] as num?,
-        printType: json['printType'] as String?,
-        categories: json['categories'] as List<String>?,
-        maturityRating: json['maturityRating'] as String?,
-        allowAnonLogging: json['allowAnonLogging'] as bool?,
-        contentVersion: json['contentVersion'] as String?,
-        panelizationSummary: json['panelizationSummary'] == null
+            : ReadingModes.fromMap(
+                data['readingModes'] as Map<String, dynamic>),
+        pageCount: data['pageCount'] as num?,
+        printType: data['printType'] as String?,
+        categories: data['categories'] as List<String>?,
+        averageRating: data['averageRating'] as num?,
+        ratingsCount: data['ratingsCount'] as int?,
+        maturityRating: data['maturityRating'] as String?,
+        allowAnonLogging: data['allowAnonLogging'] as bool?,
+        contentVersion: data['contentVersion'] as String?,
+        panelizationSummary: data['panelizationSummary'] == null
             ? null
-            : PanelizationSummary.fromJson(
-                json['panelizationSummary'] as Map<String, dynamic>),
-        imageLinks: json['imageLinks'] == null
+            : PanelizationSummary.fromMap(
+                data['panelizationSummary'] as Map<String, dynamic>),
+        imageLinks: data['imageLinks'] == null
             ? null
-            : ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
-        language: json['language'] as String?,
-        previewLink: json['previewLink'] as String?,
-        infoLink: json['infoLink'] as String?,
-        canonicalVolumeLink: json['canonicalVolumeLink'] as String?,
+            : ImageLinks.fromMap(data['imageLinks'] as Map<String, dynamic>),
+        language: data['language'] as String?,
+        previewLink: data['previewLink'] as String?,
+        infoLink: data['infoLink'] as String?,
+        canonicalVolumeLink: data['canonicalVolumeLink'] as String?,
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'title': title,
         'authors': authors,
         'publisher': publisher,
         'publishedDate': publishedDate,
         'description': description,
         'industryIdentifiers':
-            industryIdentifiers?.map((e) => e.toJson()).toList(),
-        'readingModes': readingModes?.toJson(),
+            industryIdentifiers?.map((e) => e.toMap()).toList(),
+        'readingModes': readingModes?.toMap(),
         'pageCount': pageCount,
         'printType': printType,
         'categories': categories,
+        'averageRating': averageRating,
+        'ratingsCount': ratingsCount,
         'maturityRating': maturityRating,
         'allowAnonLogging': allowAnonLogging,
         'contentVersion': contentVersion,
-        'panelizationSummary': panelizationSummary?.toJson(),
-        'imageLinks': imageLinks?.toJson(),
+        'panelizationSummary': panelizationSummary?.toMap(),
+        'imageLinks': imageLinks?.toMap(),
         'language': language,
         'previewLink': previewLink,
         'infoLink': infoLink,
         'canonicalVolumeLink': canonicalVolumeLink,
       };
+
+  /// `dart:convert`
+  ///
+  /// Parses the string and returns the resulting Json object as [VolumeInfo].
+  factory VolumeInfo.fromJson(String data) {
+    return VolumeInfo.fromMap(json.decode(data) as Map<String, dynamic>);
+  }
+
+  /// `dart:convert`
+  ///
+  /// Converts [VolumeInfo] to a JSON string.
+  String toJson() => json.encode(toMap());
 
   VolumeInfo copyWith({
     String? title,
@@ -112,6 +134,8 @@ class VolumeInfo {
     num? pageCount,
     String? printType,
     List<String>? categories,
+    num? averageRating,
+    int? ratingsCount,
     String? maturityRating,
     bool? allowAnonLogging,
     String? contentVersion,
@@ -133,6 +157,8 @@ class VolumeInfo {
       pageCount: pageCount ?? this.pageCount,
       printType: printType ?? this.printType,
       categories: categories ?? this.categories,
+      averageRating: averageRating ?? this.averageRating,
+      ratingsCount: ratingsCount ?? this.ratingsCount,
       maturityRating: maturityRating ?? this.maturityRating,
       allowAnonLogging: allowAnonLogging ?? this.allowAnonLogging,
       contentVersion: contentVersion ?? this.contentVersion,

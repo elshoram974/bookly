@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Suggestion Books"),
         "YouCanAlsoLike":
             MessageLookupByLibrary.simpleMessage("You can also like"),
+        "noName": MessageLookupByLibrary.simpleMessage("No Name"),
         "readFreeBooks": MessageLookupByLibrary.simpleMessage("Read free books")
       };
 }
