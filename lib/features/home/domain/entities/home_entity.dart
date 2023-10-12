@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
 class HomeBooksEntity extends Equatable {
-  final int idEntity;
+  final String idEntity;
   final String bookNameEntity;
-  final String authorEntity;
+  final List<String> authorEntity;
   final double priceEntity;
-  final int noOfReviewEntity;
-  final double reviewEntity;
+  final int ratingCountsEntity;
+  final double ratingEntity;
   final String photoEntity;
 
   const HomeBooksEntity({
@@ -14,8 +14,8 @@ class HomeBooksEntity extends Equatable {
     required this.bookNameEntity,
     required this.authorEntity,
     required this.priceEntity,
-    required this.noOfReviewEntity,
-    required this.reviewEntity,
+    required this.ratingCountsEntity,
+    required this.ratingEntity,
     required this.photoEntity,
   });
 
@@ -25,8 +25,8 @@ class HomeBooksEntity extends Equatable {
         bookNameEntity,
         authorEntity,
         priceEntity,
-        noOfReviewEntity,
-        reviewEntity,
+        ratingCountsEntity,
+        ratingEntity,
         photoEntity,
       ];
 }
