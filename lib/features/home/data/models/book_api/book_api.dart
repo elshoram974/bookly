@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
-
 import 'book_model.dart';
 
 class BookApi {
@@ -11,12 +9,12 @@ class BookApi {
 
   BookApi({this.kind, this.totalItems, this.items});
 
-  factory BookApi.fromMap(Map<String, dynamic> data, BuildContext context) =>
+  factory BookApi.fromMap(Map<String, dynamic> data) =>
       BookApi(
         kind: data['kind'] as String?,
         totalItems: data['totalItems'] as num?,
         items: (data['items'] as List<dynamic>?)
-            ?.map((e) => BookModel.fromMap(e as Map<String, dynamic>, context))
+            ?.map((e) => BookModel.fromMap(e as Map<String, dynamic>))
             .toList(),
       );
 
@@ -29,8 +27,8 @@ class BookApi {
   /// `dart:convert`
   ///
   /// Parses the string and returns the resulting Json object as [BookApi].
-  factory BookApi.fromJson(String data, BuildContext context) {
-    return BookApi.fromMap(json.decode(data) as Map<String, dynamic>, context);
+  factory BookApi.fromJson(String data) {
+    return BookApi.fromMap(json.decode(data) as Map<String, dynamic>);
   }
 
   /// `dart:convert`

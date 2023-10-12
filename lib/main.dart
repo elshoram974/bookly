@@ -8,8 +8,10 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox(AppStrings.featureBooks);
-  await Hive.openBox(AppStrings.suggestionBooks);
+  await Future.wait([
+    Hive.openBox(AppStrings.featureBooks),
+    Hive.openBox(AppStrings.suggestionBooks),
+  ]);
 
   runApp(const BooklyApp());
 }

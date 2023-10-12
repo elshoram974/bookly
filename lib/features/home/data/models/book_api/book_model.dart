@@ -1,8 +1,5 @@
 import 'dart:convert';
 
-import 'package:bookly/generated/l10n.dart';
-import 'package:flutter/material.dart';
-
 import '../../../domain/entities/home_entity.dart';
 import 'access_info.dart';
 import 'sale_info.dart';
@@ -18,7 +15,6 @@ class BookModel extends HomeBooksEntity {
   final SaleInfo? saleInfo;
   final AccessInfo? accessInfo;
   final SearchInfo? searchInfo;
-  final BuildContext context;
 
   BookModel({
     this.kind,
@@ -29,11 +25,10 @@ class BookModel extends HomeBooksEntity {
     this.saleInfo,
     this.accessInfo,
     this.searchInfo,
-    required this.context,
   }) : super(
           idEntity: id,
-          bookNameEntity: volumeInfo.title ?? S.of(context).noName,
-          authorEntity: volumeInfo.authors ?? [S.of(context).noName],
+          bookNameEntity: volumeInfo.title ??'',
+          authorEntity: volumeInfo.authors ?? [],
           priceEntity: 0.0,
           ratingCountsEntity: volumeInfo.ratingsCount ?? 0,
           ratingEntity: volumeInfo.averageRating == null
@@ -42,10 +37,9 @@ class BookModel extends HomeBooksEntity {
           photoEntity: volumeInfo.imageLinks?.thumbnail ?? '',
         );
 
-  factory BookModel.fromMap(Map<String, dynamic> data, BuildContext context) =>
+  factory BookModel.fromMap(Map<String, dynamic> data) =>
       BookModel(
         kind: data['kind'] as String?,
-        context: context,
         id: data['id'] as String,
         etag: data['etag'] as String?,
         selfLink: data['selfLink'] as String?,
@@ -76,8 +70,8 @@ class BookModel extends HomeBooksEntity {
   /// `dart:convert`
   ///
   /// Parses the string and returns the resulting Json object as [BookModel].
-  factory BookModel.fromJson(String data, BuildContext context) {
-    return BookModel.fromMap(json.decode(data) as Map<String, dynamic>, context);
+  factory BookModel.fromJson(String data) {
+    return BookModel.fromMap(json.decode(data) as Map<String, dynamic>);
   }
 
   /// `dart:convert`
@@ -94,10 +88,8 @@ class BookModel extends HomeBooksEntity {
     SaleInfo? saleInfo,
     AccessInfo? accessInfo,
     SearchInfo? searchInfo,
-    BuildContext? context,
   }) {
     return BookModel(
-      context: context ?? this.context,
       kind: kind ?? this.kind,
       id: id ?? this.id,
       etag: etag ?? this.etag,
