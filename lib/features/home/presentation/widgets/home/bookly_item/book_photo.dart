@@ -1,5 +1,6 @@
 import 'package:bookly/core/utils/constants/app_constants.dart';
 import 'package:bookly/features/home/domain/entities/home_entity.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'play_icon.dart';
@@ -33,7 +34,7 @@ class BookPhoto extends StatelessWidget {
                   borderRadius:
                       BorderRadius.circular(AppConstants.defaultRadius),
                   image: DecorationImage(
-                    image: NetworkImage(book.photoEntity),
+                    image: CachedNetworkImageProvider(book.photoEntity),
                     fit: BoxFit.fill,
                   ),
                 ),

@@ -11,8 +11,7 @@ abstract class HomeLocalDataSource {
 class HomeLocalDataSourceImp extends HomeLocalDataSource {
   @override
   List<HomeBooksEntity> fetchFeaturedBooks(int pageNumber) {
-    Box<HomeBooksEntity> box =
-        Hive.box<HomeBooksEntity>(AppStrings.featureBooks);
+    Box<HomeBooksEntity> box = Hive.box<HomeBooksEntity>(AppStrings.featureBooks);
     return _getBooksNotHere(box, pageNumber);
   }
 
@@ -27,6 +26,7 @@ class HomeLocalDataSourceImp extends HomeLocalDataSource {
     localBox.addAll(box.values);
     int start = pageNumber;
     int end = start + 10;
+
     if (start >= localBox.length || end > localBox.length) return [];
 
     return localBox.sublist(start, end);

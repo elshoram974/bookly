@@ -22,7 +22,8 @@ class HomeRepositoriesImp extends HomeRepositories {
         Status status,
         List<HomeBooksEntity> data,
       })> fetchFeaturedBooks(int pageNumber) async {
-    List<HomeBooksEntity> books = localDataSource.fetchFeaturedBooks(pageNumber);
+    List<HomeBooksEntity> books =
+        localDataSource.fetchFeaturedBooks(pageNumber);
     try {
       if (books.isNotEmpty) return (status: Success(), data: books);
       books = await remoteDataSource.fetchFeaturedBooks(pageNumber);
@@ -47,6 +48,9 @@ class HomeRepositoriesImp extends HomeRepositories {
       books = await remoteDataSource.fetchSuggestionBooks(pageNumber);
       return (status: Success(), data: books);
     } catch (e) {
+      if (e is DioException) {
+        return (status: ServerFailure.fromDioException(e), data: books);
+      }
       return (status: Failure(e.toString()), data: books);
     }
   }

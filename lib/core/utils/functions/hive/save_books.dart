@@ -2,7 +2,7 @@
 
 import '../../../../features/home/domain/entities/home_entity.dart';
 
-void saveBooks(List<HomeBooksEntity> books, String boxName) {
+void saveBooks(List<HomeBooksEntity> books, String boxName) async{
     Box<HomeBooksEntity> box = Hive.box<HomeBooksEntity>(boxName);
-    box.addAll(books);
+    await box.addAll(books);
   }
