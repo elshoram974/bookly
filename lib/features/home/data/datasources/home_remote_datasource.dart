@@ -7,14 +7,14 @@ import 'package:bookly/features/home/data/models/book_api/book_model.dart';
 import '../../domain/entities/home_entity.dart';
 
 abstract class HomeRemoteDataSource {
-  Future<List<HomeBooksEntity>> fetchFeaturedBooks();
-  Future<List<HomeBooksEntity>> fetchSuggestionBooks();
+  Future<List<HomeBooksEntity>> fetchFeaturedBooks(int pageNumber);
+  Future<List<HomeBooksEntity>> fetchSuggestionBooks(int pageNumber);
 }
 
 class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
   @override
-  Future<List<HomeBooksEntity>> fetchFeaturedBooks() async {
-    Map<String, dynamic> data = await const APIServices().get(AppLinks.featureBooks);
+  Future<List<HomeBooksEntity>> fetchFeaturedBooks(int pageNumber) async {
+    Map<String, dynamic> data = await const APIServices().get('${AppLinks.featureBooks}&startIndex=${pageNumber * 10}');
 
     final List<HomeBooksEntity> books = _getBooksFromMap(data);
     saveBooks(books, AppStrings.featureBooks);
@@ -23,8 +23,8 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
   }
 
   @override
-  Future<List<HomeBooksEntity>> fetchSuggestionBooks() async {
-    Map<String, dynamic> data = await const APIServices().get(AppLinks.suggestionBooks);
+  Future<List<HomeBooksEntity>> fetchSuggestionBooks(int pageNumber) async {
+    Map<String, dynamic> data = await const APIServices().get('${AppLinks.suggestionBooks}&startIndex=${pageNumber * 10}');
 
     final List<HomeBooksEntity> books = _getBooksFromMap(data);
     saveBooks(books, AppStrings.suggestionBooks);

@@ -1,5 +1,5 @@
 import '../errors/status.dart';
 
-abstract class UseCase<T> {
-  Future<({Status status, T data})> call();
+abstract class UseCase<T,P> {
+  Future<({Status status, T data})> call(P param);
 }
