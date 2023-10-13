@@ -12,6 +12,8 @@ class CanLikeText extends StatelessWidget {
       padding: const EdgeInsets.only(
         top: 2.5 * AppConstants.defaultPadding,
         bottom: 0.75 * AppConstants.defaultPadding,
+        left: 1.5 * AppConstants.defaultPadding,
+        right: 1.5 * AppConstants.defaultPadding,
       ),
       child: Opacity(
         opacity: 0.7,

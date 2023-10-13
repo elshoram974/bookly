@@ -22,9 +22,6 @@ class DetailsScreen extends StatelessWidget {
           const CustomDetailsAppBar(),
           Expanded(
             child: ListView(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 1.5 * AppConstants.defaultPadding,
-              ),
               physics: const BouncingScrollPhysics(),
               children: <Widget>[
                 DetailsBookPhoto(book: book),

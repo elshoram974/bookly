@@ -13,14 +13,11 @@ class NameReviewAuthor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        top: 42,
-        bottom: 1.5 * AppConstants.defaultPadding,
-      ),
+      padding: const EdgeInsets.all(1.5 * AppConstants.defaultPadding),
       child: Column(
         children: [
           BookName(name: book.bookNameEntity, fontSize: 30, maxLines: 5),
-          WriterWidget(fontSize: 16, authors: book.authorEntity,maxLines: 3),
+          WriterWidget(fontSize: 16, authors: book.authorEntity, maxLines: 3),
           ReviewWidget(book: book),
         ],
       ),
