@@ -15,8 +15,10 @@ class SuggestedBooksBlocBuilder extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         } else if (state is FetchSuggestedBooksFailure) {
           return Center(child: Text(state.errMessage));
-        } else if (state is FetchSuggestedBooksSuccess) {
+        } else if (state is FetchSuggestedBooksSuccess ||state is FetchSuggestedBooksFailurePagination) {
           return BooklySuggestionBooksList(books: state.books);
+        }else if (state is FetchSuggestedBooksLoadingPagination) {
+          return BooklySuggestionBooksList(books: state.books, isLoading: true);
         }
         return const Text('Error loading books');
       },

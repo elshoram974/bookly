@@ -16,21 +16,28 @@ class FeatureBooksBlocBuilder extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         } else if (state is FetchFeaturedBooksFailure) {
           return Center(child: Text(state.errMessage));
-        } else if (state is FetchFeaturedBooksSuccess) {
-          final List<HomeBooksEntity> books = [];
-          books.addAll(state.books);
-          if (book != null) {
-            for (HomeBooksEntity e in state.books) {
-              if (e == book) {
-                books.remove(e);
-                break;
-              }
-            }
-          }
-          return BooklyHorizontalList(books: books);
+        } else if (state is FetchFeaturedBooksSuccess ||state is FetchFeaturedBooksFailurePagination) {
+          return BooklyHorizontalList(books: cancelCurrentBook(state.books));
+        } else if (state is FetchFeaturedBooksLoadingPagination) {
+          return BooklyHorizontalList(books: cancelCurrentBook(state.books), isLoading: true);
         }
         return const Text('Error loading books');
       },
     );
+  }
+
+  cancelCurrentBook(List<HomeBooksEntity> stateBooks) {
+    final List<HomeBooksEntity> books = [];
+
+    books.addAll(stateBooks);
+    if (book != null) {
+      for (HomeBooksEntity e in stateBooks) {
+        if (e == book) {
+          books.remove(e);
+          break;
+        }
+      }
+    }
+    return books;
   }
 }
