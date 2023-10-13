@@ -1,13 +1,15 @@
 import 'package:dio/dio.dart';
 
-abstract class Status {}
+abstract class Status {
+  const Status();
+}
 
 class Success extends Status {}
 
 // ! Failure --------------------------
 class Failure extends Status {
   final String error;
-  Failure(this.error);
+  const Failure(this.error);
 }
 
 class ServerFailure extends Failure {

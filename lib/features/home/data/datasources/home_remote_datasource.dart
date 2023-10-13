@@ -12,9 +12,13 @@ abstract class HomeRemoteDataSource {
 }
 
 class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
+  final APIServices service;
+
+  HomeRemoteDataSourceImp(this.service);
+
   @override
   Future<List<HomeBooksEntity>> fetchFeaturedBooks(int pageNumber) async {
-    Map<String, dynamic> data = await const APIServices().get('${AppLinks.featureBooks}&startIndex=${pageNumber * 10}');
+    Map<String, dynamic> data = await service.get('${AppLinks.featureBooks}&startIndex=${pageNumber * 10}');
 
     final List<HomeBooksEntity> books = _getBooksFromMap(data);
     saveBooks(books, AppStrings.featureBooks);
@@ -24,7 +28,7 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
 
   @override
   Future<List<HomeBooksEntity>> fetchSuggestionBooks(int pageNumber) async {
-    Map<String, dynamic> data = await const APIServices().get('${AppLinks.suggestionBooks}&startIndex=${pageNumber * 10}');
+    Map<String, dynamic> data = await service.get('${AppLinks.suggestionBooks}&startIndex=${pageNumber * 10}');
 
     final List<HomeBooksEntity> books = _getBooksFromMap(data);
     saveBooks(books, AppStrings.suggestionBooks);
