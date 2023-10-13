@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/utils/functions/hive/init_hive.dart';
+import 'core/utils/services/bloc_observer.dart';
 import 'core/utils/services/get_it.dart';
 import 'features/bookly_material.dart';
 import 'features/home/data/repositories/home_repositories_imp.dart';
@@ -14,6 +15,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initHive();
   getItSingleton();
+
+  Bloc.observer = MyBlocObserver();
 
   runApp(const BooklyApp());
 }
