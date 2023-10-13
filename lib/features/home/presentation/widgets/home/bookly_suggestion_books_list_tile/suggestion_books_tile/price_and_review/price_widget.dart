@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/localization/generated/l10n.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -7,10 +8,12 @@ class PriceWidget extends StatelessWidget {
     this.fontSize,
     this.fontWeight,
     this.color,
+    required this.price,
   });
   final double? fontSize;
   final FontWeight? fontWeight;
   final Color? color;
+  final double price;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +24,11 @@ class PriceWidget extends StatelessWidget {
           fontWeight: fontWeight,
           color: color,
         ),
-        children: const [
-          TextSpan(text: "19.99"),
-          TextSpan(text: " €", style: TextStyle(fontSize: 15)),
+        children: [
+          TextSpan(
+              text: price != 0 ? price.toStringAsFixed(2) : S.of(context).free),
+          if (price != 0)
+            const TextSpan(text: " €", style: TextStyle(fontSize: 15)),
         ],
       ),
     );

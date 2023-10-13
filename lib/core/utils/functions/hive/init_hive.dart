@@ -6,7 +6,7 @@ Future<void> initHive() async {
   await Hive.initFlutter();
   Hive.registerAdapter(HomeBooksEntityAdapter());
   await Future.wait([
-    Hive.openBox(AppStrings.featureBooks),
-    Hive.openBox(AppStrings.suggestionBooks),
+    Hive.openBox<HomeBooksEntity>(AppStrings.featureBooks),
+    Hive.openBox<HomeBooksEntity>(AppStrings.suggestionBooks),
   ]);
 }

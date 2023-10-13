@@ -1,11 +1,14 @@
+import 'package:bookly/core/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
 
 import 'core/utils/functions/hive/init_hive.dart';
 import 'core/utils/services/bloc_observer.dart';
 import 'core/utils/services/get_it.dart';
 import 'features/bookly_material.dart';
 import 'features/home/data/repositories/home_repositories_imp.dart';
+import 'features/home/domain/entities/home_entity.dart';
 import 'features/home/domain/usecases/fetch_featured_books_usecase.dart';
 import 'features/home/domain/usecases/fetch_suggestion_books_usecase.dart';
 import 'features/home/presentation/cubit/fetch_featured_books_cubit/fetch_featured_books_cubit.dart';
@@ -15,7 +18,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initHive();
   getItSingleton();
-
+  var box = await Hive.openBox<HomeBooksEntity>(AppStrings.suggestionBooks);
+  box.clear();
   Bloc.observer = MyBlocObserver();
 
   runApp(const BooklyApp());

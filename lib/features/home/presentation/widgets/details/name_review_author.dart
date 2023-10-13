@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/constants/app_constants.dart';
+import 'package:bookly/features/home/domain/entities/home_entity.dart';
 import 'package:flutter/material.dart';
 
 import '../home/bookly_suggestion_books_list_tile/suggestion_books_tile/book_name.dart';
@@ -6,20 +7,21 @@ import '../home/bookly_suggestion_books_list_tile/suggestion_books_tile/price_an
 import '../home/bookly_suggestion_books_list_tile/suggestion_books_tile/writer_widget.dart';
 
 class NameReviewAuthor extends StatelessWidget {
-  const NameReviewAuthor({super.key});
+  const NameReviewAuthor({super.key, required this.book});
+  final HomeBooksEntity book;
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(
+    return Padding(
+      padding: const EdgeInsets.only(
         top: 42,
         bottom: 1.5 * AppConstants.defaultPadding,
       ),
       child: Column(
         children: [
-          BookName(fontSize: 30),
-          WriterWidget(fontSize: 16),
-          ReviewWidget(),
+          BookName(name: book.bookNameEntity, fontSize: 30, maxLines: 5),
+          WriterWidget(fontSize: 16, authors: book.authorEntity,maxLines: 3),
+          ReviewWidget(book: book),
         ],
       ),
     );

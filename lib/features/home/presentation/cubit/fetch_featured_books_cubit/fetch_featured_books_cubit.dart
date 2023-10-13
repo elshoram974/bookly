@@ -17,13 +17,15 @@ class FetchFeaturedBooksCubit extends Cubit<FetchFeaturedBooksState> {
   final List<HomeBooksEntity> books = [];
 
   Future<void> fetchBooks([int pageNumber = 0]) async {
+
     _whenPaginationOrNot(
       pageNumber,
       paginationState: FetchFeaturedBooksLoadingPagination(books),
       state: FetchFeaturedBooksLoading(),
     );
-    final ({List<HomeBooksEntity> data, Status status}) featuredBooks = await useCase.call(pageNumber);
 
+    final ({List<HomeBooksEntity> data, Status status}) featuredBooks =
+        await useCase.call(pageNumber);
     Status status = featuredBooks.status;
     if (status is Success) {
       books.addAll(featuredBooks.data);

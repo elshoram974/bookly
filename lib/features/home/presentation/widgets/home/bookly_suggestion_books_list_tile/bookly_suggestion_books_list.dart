@@ -1,10 +1,12 @@
 import 'package:bookly/core/utils/constants/app_constants.dart';
+import 'package:bookly/features/home/domain/entities/home_entity.dart';
 import 'package:flutter/material.dart';
 
 import 'suggestion_books_tile/bookly_suggestion_books_list_tile.dart';
 
 class BooklySuggestionBooksList extends StatelessWidget {
-  const BooklySuggestionBooksList({super.key});
+  const BooklySuggestionBooksList({super.key, required this.books});
+  final List<HomeBooksEntity> books;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +17,11 @@ class BooklySuggestionBooksList extends StatelessWidget {
       ),
       child: Column(
         children: List.generate(
-          20,
-          (index) => const BooklySuggestionBooksListTile(),
+          books.length,
+          (index) {
+            HomeBooksEntity book = books[index];
+            return BooklySuggestionBooksListTile(book: book);
+          },
         ),
       ),
     );

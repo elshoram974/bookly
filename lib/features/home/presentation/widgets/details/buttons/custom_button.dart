@@ -9,10 +9,11 @@ class CustomButtons extends StatelessWidget {
   const CustomButtons({
     super.key,
     this.onPressed,
-    this.color,
+    this.color, required this.price,
   });
   final void Function()? onPressed;
   final Color? color;
+  final double price;
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +31,11 @@ class CustomButtons extends StatelessWidget {
       color: color ?? Colors.white,
       colorBrightness: color == null ? Brightness.light : Brightness.dark,
       child: color == null
-          ? const PriceWidget(
+          ?  PriceWidget(
               fontSize: 18,
               color: Colors.black,
               fontWeight: FontWeight.normal,
+              price: price,
             )
           : Text(S.of(context).FreePreview, style: AppStyle.styleMedium14),
     );

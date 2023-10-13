@@ -52,39 +52,40 @@ class VolumeInfo {
     this.canonicalVolumeLink,
   });
 
-  factory VolumeInfo.fromMap(Map<String, dynamic> data) => VolumeInfo(
-        title: data['title'] as String?,
-        authors: data['authors'] as List<String>?,
-        publisher: data['publisher'] as String?,
-        publishedDate: data['publishedDate'] as String?,
-        description: data['description'] as String?,
-        industryIdentifiers: (data['industryIdentifiers'] as List<dynamic>?)
-            ?.map((e) => IndustryIdentifier.fromMap(e as Map<String, dynamic>))
-            .toList(),
-        readingModes: data['readingModes'] == null
-            ? null
-            : ReadingModes.fromMap(
-                data['readingModes'] as Map<String, dynamic>),
-        pageCount: data['pageCount'] as num?,
-        printType: data['printType'] as String?,
-        categories: data['categories'] as List<String>?,
-        averageRating: data['averageRating'] as num?,
-        ratingsCount: data['ratingsCount'] as int?,
-        maturityRating: data['maturityRating'] as String?,
-        allowAnonLogging: data['allowAnonLogging'] as bool?,
-        contentVersion: data['contentVersion'] as String?,
-        panelizationSummary: data['panelizationSummary'] == null
-            ? null
-            : PanelizationSummary.fromMap(
-                data['panelizationSummary'] as Map<String, dynamic>),
-        imageLinks: data['imageLinks'] == null
-            ? null
-            : ImageLinks.fromMap(data['imageLinks'] as Map<String, dynamic>),
-        language: data['language'] as String?,
-        previewLink: data['previewLink'] as String?,
-        infoLink: data['infoLink'] as String?,
-        canonicalVolumeLink: data['canonicalVolumeLink'] as String?,
-      );
+  factory VolumeInfo.fromMap(Map<String, dynamic> data) {
+    return VolumeInfo(
+      title: data['title'] as String?,
+      authors: (data['authors'] as List?)?.map((e) => e.toString()).toList(),
+      publisher: data['publisher'] as String?,
+      publishedDate: data['publishedDate'] as String?,
+      description: data['description'] as String?,
+      industryIdentifiers: (data['industryIdentifiers'] as List<dynamic>?)
+          ?.map((e) => IndustryIdentifier.fromMap(e as Map<String, dynamic>))
+          .toList(),
+      readingModes: data['readingModes'] == null
+          ? null
+          : ReadingModes.fromMap(data['readingModes'] as Map<String, dynamic>),
+      pageCount: data['pageCount'] as num?,
+      printType: data['printType'] as String?,
+      categories: (data['categories'] as List?)?.map((e) => e.toString()).toList(),
+      averageRating: data['averageRating'] as num?,
+      ratingsCount: data['ratingsCount'] as int?,
+      maturityRating: data['maturityRating'] as String?,
+      allowAnonLogging: data['allowAnonLogging'] as bool?,
+      contentVersion: data['contentVersion'] as String?,
+      panelizationSummary: data['panelizationSummary'] == null
+          ? null
+          : PanelizationSummary.fromMap(
+              data['panelizationSummary'] as Map<String, dynamic>),
+      imageLinks: data['imageLinks'] == null
+          ? null
+          : ImageLinks.fromMap(data['imageLinks'] as Map<String, dynamic>),
+      language: data['language'] as String?,
+      previewLink: data['previewLink'] as String?,
+      infoLink: data['infoLink'] as String?,
+      canonicalVolumeLink: data['canonicalVolumeLink'] as String?,
+    );
+  }
 
   Map<String, dynamic> toMap() => {
         'title': title,

@@ -1,3 +1,4 @@
+import 'package:bookly/features/home/domain/entities/home_entity.dart';
 import 'package:bookly/features/home/presentation/screens/details_screen.dart';
 import 'package:bookly/features/home/presentation/screens/home_screen.dart';
 import 'package:bookly/features/splash_screen/presentation/screen/view.dart';
@@ -26,7 +27,7 @@ abstract class AppRoute {
       GoRoute(
         path: detailsScreen,
         builder: (BuildContext context, GoRouterState state) {
-          return const DetailsScreen();
+          return DetailsScreen(book: state.extra as HomeBooksEntity);
         },
       ),
     ],
