@@ -11,12 +11,24 @@ abstract class HomeLocalDataSource {
 class HomeLocalDataSourceImp extends HomeLocalDataSource {
   @override
   List<HomeBooksEntity> fetchFeaturedBooks(int pageNumber) {
-    Box<HomeBooksEntity> box = Hive.box<HomeBooksEntity>(AppStrings.featureBooks);
-    return box.values.toList();
+    Box<HomeBooksEntity> box =
+        Hive.box<HomeBooksEntity>(AppStrings.featureBooks);
+    return _getBooksNotHere(box, pageNumber);
   }
 
   @override
   List<HomeBooksEntity> fetchSuggestionBooks(int pageNumber) {
-    Box<HomeBooksEntity> box = Hive.box<HomeBooksEntity>(AppStrings.suggestionBooks);
-    return box.values.toList();  }
+    Box<HomeBooksEntity> box =Hive.box<HomeBooksEntity>(AppStrings.suggestionBooks);
+    return _getBooksNotHere(box, pageNumber);
+  }
+
+  List<HomeBooksEntity> _getBooksNotHere(Box<HomeBooksEntity> box, int pageNumber) {
+    final List<HomeBooksEntity> localBox = [];
+    localBox.addAll(box.values);
+    int start = pageNumber;
+    int end = start + 10;
+    if (start >= localBox.length || end > localBox.length) return [];
+
+    return localBox.sublist(start, end);
+  }
 }

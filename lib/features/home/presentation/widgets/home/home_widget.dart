@@ -73,7 +73,7 @@ class FeatureBooksBlocBuilder extends StatelessWidget {
           }
           return BooklyHorizontalList(books: books);
         }
-        return Text('Error loading books');
+        return const Text('Error loading books');
       },
     );
   }
